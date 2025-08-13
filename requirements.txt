@@ -1,0 +1,7 @@
+numpy
+matplotlib
+dash
+plotly
+scipy
+shapely
+rdp
