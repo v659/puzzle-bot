@@ -8,9 +8,25 @@ import shapely
 from scipy.interpolate import splprep, splev
 from itertools import combinations
 from collections import defaultdict
+import sys, os
 
 
-image = Image.open("IMG_9561.jpg")
+
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and PyInstaller """
+    try:
+        # When running from the exe
+        base_path = sys._MEIPASS
+    except AttributeError:
+        # When running from the .py file
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
+
+# Example usage
+image_path = resource_path("IMG_9561.jpg")
+image = Image.open(image_path)
+
 def find_array_with_points(sides, pts):
     pt1 = np.array(pts[0])
     pt2 = np.array(pts[1])
