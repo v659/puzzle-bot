@@ -1,4 +1,7 @@
 from utils import *
+import matplotlib
+matplotlib.use("TkAgg", force=True)
+
 import matplotlib.pyplot as plt
 import numpy as np
 from side import Side
@@ -190,7 +193,8 @@ def getsides():
     fig.savefig("piece_shapes.png")
     fig2.savefig("side_segments.png")
     # Show plots
-    plt.show()
+    plt.ioff()  # interactive mode
+    plt.show(block=True)
 
 
 if __name__ == "__main__":
